@@ -18,10 +18,11 @@ from django.contrib import admin
 
 from .import api
 
-user_router = api.register()
+router = api.register()
 
 urlpatterns = [
-  url(r'^', include(user_router.urls)),
+  url(r'^api/', include(router.urls)),
+  ## url('^api/comments/(?P<post>.+)/$', api.PostCommentList.as_view()),  
   url(r'^admin/', admin.site.urls),
   url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
   ]
