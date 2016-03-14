@@ -10,8 +10,8 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, unique=True, related_name='user_comments')
-    post = models.ForeignKey('Post', unique=True, related_name='comments')
+    user = models.ForeignKey(User, related_name='user_comments')
+    post = models.ForeignKey('Post', related_name='comments')
     parent = models.ForeignKey('self', related_name='childs', null=True, default=None)
     description = models.CharField(max_length=500)
     

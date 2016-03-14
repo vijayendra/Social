@@ -17,7 +17,7 @@ class PostSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ('user', 'post', 'parent', 'description')
+        fields = ('id', 'user', 'post', 'parent', 'description')
 
 
 class UserViewSet(viewsets.ModelViewSet):
