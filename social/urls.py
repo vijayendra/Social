@@ -16,13 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from .import api
-
-router = api.register()
-
 urlpatterns = [
-  url(r'^api/', include(router.urls)),
-  ## url('^api/comments/(?P<post>.+)/$', api.PostCommentList.as_view()),  
+  url(r'^api/', include('forum.urls')),
   url(r'^admin/', admin.site.urls),
   url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
   ]
