@@ -4,20 +4,20 @@ from rest_framework import routers, serializers, viewsets, generics
 
 from forum.models import Post, Comment
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('url', 'username', 'email', 'password')
 
-class PostSerializer(serializers.HyperlinkedModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('user', 'title', 'description', 'likes')
+        fields = ('id', 'user', 'title', 'description',)
 
-class CommentSerializer(serializers.HyperlinkedModelSerializer):
+class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ('user', 'post', 'parent', 'description', 'likes')
+        fields = ('user', 'post', 'parent', 'description')
 
 
 class UserViewSet(viewsets.ModelViewSet):
