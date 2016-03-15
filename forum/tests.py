@@ -182,7 +182,7 @@ class TestCommentApi(BaseClass):
 
     def test_create_comments_with_login(self):
         client = APIClient()
-        client.login(username='John', password=self.password)
+        client.login(username='Bob', password=self.password)
         request_data = dict(
             user=self.bob.id,
             post=self.post_id,
