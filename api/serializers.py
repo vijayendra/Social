@@ -21,9 +21,9 @@ class UserSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('id', 'user', 'title', 'description',)
+        fields = ('url', 'id', 'user', 'title', 'description',)
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ('id', 'user', 'post', 'parent', 'description')
+        fields = ('url', 'id', 'user', 'post', 'parent', 'description')

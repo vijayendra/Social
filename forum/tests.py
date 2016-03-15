@@ -168,9 +168,7 @@ class TestCommentApi(BaseClass):
     def test_get_comments(self):
         client = APIClient()
         response = client.get(reverse('comment-list'))
-        self.assertEqual(response.status_code, 200)
-        data = response.json()
-        self.assertEqual(len(data), 0)
+        self.assertEqual(response.status_code, 403)
 
     def test_create_comments_without_login(self):
         client = APIClient()
