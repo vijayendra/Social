@@ -22,8 +22,10 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ('url', 'id', 'user', 'title', 'description',)
+        extra_kwargs = {'user': {'read_only': True}}
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ('url', 'id', 'user', 'post', 'parent', 'description')
+        extra_kwargs = {'user': {'read_only': True}}
