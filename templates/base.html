@@ -2,10 +2,11 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html ng-app="thinkster">
+<html ng-app="social">
   <head>
     <meta charset="utf-8">
     <title>Social Network</title>
+    <base href="/">
     <meta name="description" content="Social networking app using Django and Angular">
     <meta name="viewport" content="width=device-width">
     
@@ -16,12 +17,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'bower_components/ngDialog/css/ngDialog.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'bower_components/ngDialog/css/ngDialog-theme-default.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'bower_components/snackbarjs/dist/snackbar.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/social.css' %}" />
     {% endcompress %}
 
   </head>
 
   <body>
-    <nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController as vm">
+    <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#we-are-borg-navbar">
@@ -38,7 +40,7 @@
             {% if user.is_authenticated %}
             <li><a href="/+{{ user.username }}">+{{ user.username }}</a></li>
             <li><a href="/+{{ user.username }}/settings">Settings</a></li>
-            <li><a href="javascript:void(0)" ng-click="vm.logout()">Logout</a></li>
+            <li><a href="javascript:void(0)">Logout</a></li>
             {% else %}
             <li><a href="/login">Login</a></li>
             <li><a href="/register">Register</a></li>
@@ -61,12 +63,15 @@
     <script type="text/javascript" src="{% static 'bower_components/bootstrap-material-design/dist/js/material.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bower_components/bootstrap-material-design/dist/js/ripples.min.js' %}"></script>
     
-    <script type="text/javascript" src="{% static 'bower_components/angular/angular.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'bower_components/angular-route/angular-route.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bower_components/angular/angular.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bower_components/angular-route/angular-route.js' %}"></script>
     <script type="text/javascript" src="{% static 'bower_components/angular-cookies/angular-cookies.min.js' %}"></script>
     
     <script type="text/javascript" src="{% static 'bower_components/ngDialog/js/ngDialog.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bower_components/snackbarjs/dist/snackbar.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/social.routes.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/social.js' %}"></script>
     
     {% endcompress %}
     
