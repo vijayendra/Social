@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth import authenticate, login, logout
 
-from rest_framework import viewsets, permissions, generics
+from rest_framework import viewsets, permissions, generics, views, status
 from rest_framework.decorators import detail_route, list_route
+from rest_framework.response import Response
 
 from django.contrib.auth.models import User
 from forum.models import Post, Comment
@@ -74,3 +76,35 @@ class CommentOnPostViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return Comment.objects.filter(post__pk=self.kwargs["post"])
 
+class LoginView(views.APIView):
+    permission_classes = (permissions.AllowAny, )
+    
+    def post(self, request, format=None):
+        data = request.data
+        username = data.get('username', None)
+        password = data.get('password', None)
+
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                serializer = UserSerializer(user, context={'request': request})
+                return Response(serializer.data)
+            else:
+                return Response({
+                    'status': 'Unauthorized',
+                    'message': 'This accout is not active.'
+                    }, status=status.HTTP_401_UNAUTHORIZED)
+        return Response({
+            'status': 'Unauthorized',
+            'message': 'Username or password is invalid'
+            }, status=status.HTTP_401_UNAUTHORIZED)
+
+class LogoutView(views.APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def post(self, request, format=None):
+        logout(request)
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+    get = post
