@@ -2,4 +2,5 @@
 *~
 db.*
 dist/
+staticfiles/
 static/bower_components/
