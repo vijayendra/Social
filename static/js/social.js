@@ -14,7 +14,9 @@
 
   angular.module('social', [
     'social.routes',
-    'social.layout'
+    'social.layout',
+    'social.users',
+    'social.auth'
   ])
   .config(httpConfig)
   .config(locationConfig);
