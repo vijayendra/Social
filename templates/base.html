@@ -23,7 +23,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController as vm">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#we-are-borg-navbar">
@@ -40,7 +40,7 @@
             {% if user.is_authenticated %}
             <li><a href="/+{{ user.username }}">+{{ user.username }}</a></li>
             <li><a href="/+{{ user.username }}/settings">Settings</a></li>
-            <li><a href="javascript:void(0)">Logout</a></li>
+            <li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
             {% else %}
             <li><a href="/login">Login</a></li>
             <li><a href="/register">Register</a></li>
@@ -75,6 +75,7 @@
 
     <script type="text/javascript" src="{% static 'js/layout/layout.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/layout/controllers/index.controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/layout/controllers/navbar.controller.js' %}"></script>
 
     <script type="text/javascript" src="{% static 'js/users/users.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/users/controllers/user.controller.js' %}"></script>

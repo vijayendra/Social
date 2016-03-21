@@ -4,15 +4,23 @@
      .module('social.auth.controllers')
      .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$scope'];
-  function LoginController($scope){
+  LoginController.$inject = ['$location', '$scope', 'Authentication'];
+  function LoginController($location, $scope, Authentication){
     var vm = this;
     $scope.username = "";
     $scope.password = "";
+
+    //activate();
+
     $scope.login = function(){
-      console.log($scope.username);
-      console.log($scope.password);
+      Authentication.login($scope.username, $scope.password);
     }
+
+    function activate(){
+      if(Authentication.isAuthenticated())
+        $location.url('/');
+    }
+
   }
 
 })();

@@ -14,6 +14,10 @@
       controller: 'LoginController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/auth/login.html'
+    }).when('/logout', {
+      controller: 'LogoutController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/auth/login.html'
     }).otherwise('/');
   }
   angular.module('social.routes', ['ngRoute']).config(routeConfig);
