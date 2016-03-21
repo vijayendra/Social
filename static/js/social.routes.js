@@ -3,10 +3,10 @@
   routeConfig.$inject = ['$routeProvider'];
   function routeConfig($routeProvider){
     $routeProvider.when('/', {
-      controller: 'MainController',
-      controllerAs: 'app',
+      controller: 'IndexController',
+      controllerAs: 'vm',
       templateUrl: '/static/templates/layout/main.html'
     }).otherwise('/');
   }
-  angular.module('social.routes', []).config(routeConfig);
+  angular.module('social.routes', ['ngRoute']).config(routeConfig);
 })();

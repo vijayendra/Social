@@ -13,8 +13,8 @@
   }
 
   angular.module('social', [
-    'ngRoute',
-    'social.routes'
+    'social.routes',
+    'social.layout'
   ])
   .config(httpConfig)
   .config(locationConfig);
