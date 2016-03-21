@@ -17,7 +17,6 @@
     };
 
     function isAuthenticated(){
-      console.log($cookies.authentication);
       return !!$cookies.authenticatedAccount;
     }
 

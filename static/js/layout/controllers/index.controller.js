@@ -4,8 +4,11 @@
    .module('social.layout.controllers')
    .controller('IndexController', IndexController);
 
-  IndexController.$inject = ['$scope'];
-  function IndexController($scope){
-    var vm = this;
+  IndexController.$inject = ['$scope', 'Authentication'];
+  function IndexController($scope, Authentication){
+    $scope.isAuthenticated = function(){
+      return Authentication.isAuthenticated();
+    }
+
   }
 })();
