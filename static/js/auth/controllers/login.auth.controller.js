@@ -7,6 +7,12 @@
   LoginController.$inject = ['$scope'];
   function LoginController($scope){
     var vm = this;
+    $scope.username = "";
+    $scope.password = "";
+    $scope.login = function(){
+      console.log($scope.username);
+      console.log($scope.password);
+    }
   }
 
 })();
