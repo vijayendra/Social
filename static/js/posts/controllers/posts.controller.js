@@ -3,8 +3,8 @@
   angular.module('social.posts.controllers')
   .controller('PostsController', PostsController);
 
-  PostsController.$inject = ['$scope', 'Posts'];
-  function PostsController($scope, Posts){
+  PostsController.$inject = ['$scope', 'Posts', 'Authentication'];
+  function PostsController($scope, Posts, Authentication){
     $scope.posts = [];
     activate();
     function activate(){

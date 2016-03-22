@@ -2,17 +2,20 @@
   <div class="col-sm-12">
     <div class="well">
       <div class="post">
-        <div class="post-user">
-          <a href="">
-            +{{ post.user.username }}
-          </a>
-        </div>
-        <p class="post-title">
-          {{ post.title }}
-        </p>
+        <blockquote>
+          <p class="post-title">
+            {{ post.title }}
+          </p>
+          <small>
+            {{ post.user.username }} ({{ post.user.email }})
+          </small>
+        </blockquote>
         <p class="post-description">
           {{ post.description }}
         </p>
+        <button type="submit" class="btn btn-success">Comment</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <button type="submit" class="btn btn-danger">Delete</button>
       </div>
     </div>
   </div>

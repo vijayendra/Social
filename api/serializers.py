@@ -20,14 +20,24 @@ class UserSerializer(serializers.ModelSerializer):
     
 class PostSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True, required=False)
+
     class Meta:
         model = Post
         fields = ('url', 'id', 'user', 'title', 'description',)
-        read_only_fields = ('user', )
+        read_only_fields = ('id', )
+
+    def get_validation_exclusions(self, *args, **kwargs):
+        exclusions = super(PostSerializer, self).get_validation_exclusions()
+        return exclusions + ['user']
 
 class CommentSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True, required=False)
+
     class Meta:
         model = Comment
         fields = ('url', 'id', 'user', 'post', 'parent', 'description')
-        read_only_fields = ('user', 'post')
+        read_only_fields = ('post',)
+
+    def get_validation_exclusions(self, *args, **kwargs):
+        exclusions = super(CommentSerializer, self).get_validation_exclusions()
+        return exclusions + ['user']
