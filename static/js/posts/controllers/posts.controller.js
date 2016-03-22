@@ -1,20 +1,16 @@
 (function(){
   'use strict';
-  angular
-   .module('social.layout.controllers')
-   .controller('IndexController', IndexController);
+  angular.module('social.posts.controllers')
+  .controller('PostsController', PostsController);
 
-  IndexController.$inject = ['$scope', 'Authentication', 'Posts'];
-  function IndexController($scope, Authentication, Posts){
-    $scope.isAuthenticated = function(){
-      return Authentication.isAuthenticated();
-    }
+  PostsController.$inject = ['$scope', 'Posts'];
+  function PostsController($scope, Posts){
     $scope.posts = [];
     activate();
-
     function activate(){
       Posts.all().then(success, failure);
       function success(data, status, headers, config){
+        console.log(data);
         $scope.posts = data.data;
       }
       function failure(data, status, headers, config){
@@ -27,8 +23,7 @@
       $scope.$on('post.created.error', function(event, post){
         $scope.posts.shift();
       })
-      
     }
-
   }
+  
 })();

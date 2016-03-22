@@ -10,7 +10,7 @@
     $scope.username = "";
     $scope.password = "";
 
-    //activate();
+    activate();
 
     $scope.login = function(){
       Authentication.login($scope.username, $scope.password);

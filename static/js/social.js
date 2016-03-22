@@ -16,7 +16,8 @@
     'social.routes',
     'social.layout',
     'social.users',
-    'social.auth'
+    'social.auth',
+    'social.posts'
   ])
   .config(httpConfig)
   .config(locationConfig);

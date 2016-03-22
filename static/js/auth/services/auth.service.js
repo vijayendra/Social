@@ -13,6 +13,7 @@
       register: register,
       isAuthenticated: isAuthenticated,
       setAuthenticatedAccount: setAuthenticatedAccount,
+      getAuthenticatedAccount: getAuthenticatedAccount,
       unauthenticate: unauthenticate
     };
 

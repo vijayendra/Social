@@ -19,12 +19,14 @@ class UserSerializer(serializers.ModelSerializer):
         return user
     
 class PostSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True, required=False)
     class Meta:
         model = Post
         fields = ('url', 'id', 'user', 'title', 'description',)
         read_only_fields = ('user', )
 
 class CommentSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True, required=False)
     class Meta:
         model = Comment
         fields = ('url', 'id', 'user', 'post', 'parent', 'description')
