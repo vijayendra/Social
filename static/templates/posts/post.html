@@ -13,7 +13,24 @@
         <p class="post-description">
           {{ post.description }}
         </p>
-        <button type="submit" class="btn btn-success">Comment</button>
+        <div class="well well-sm" ng-show="showAddCommentForm">
+          <form role="form" ng-submit="addComment(post.id, null, comment)">
+            <div class="form-group">
+              <textarea class="form-control" 
+                        id="description" 
+                        rows="5" 
+                        placeholder="Add your comment here." 
+                        ng-model="comment">
+              </textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-xs">Save</button>
+              <button class="btn btn-default btn-xs" ng-click="showAddCommentForm = false">Close</button>
+            </div>
+          </form>
+        </div>
+        
+        <button type="submit" class="btn btn-success" ng-click="showAddCommentForm = true">Comment</button>
         <button type="submit" class="btn btn-primary">Edit</button>
         <button type="submit" class="btn btn-danger">Delete</button>
       </div>

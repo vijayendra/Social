@@ -6,6 +6,8 @@
 
   function post(){
     var directive = {
+      controller: 'PostController',
+      controllerAs: 'postCtrl',
       restrict: 'E',
       scope: {
         post: '='

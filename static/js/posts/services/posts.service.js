@@ -20,7 +20,7 @@
     };
     function create(title, description){
       return $http.post('/api/posts/', {title: title, description: description});
-    };
+    }
   }
 
 })();
