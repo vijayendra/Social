@@ -107,9 +107,7 @@ class TestPostApi(BaseClass):
     def test_get_posts(self):
         client = APIClient()
         response = client.get(reverse('post-list'))
-        self.assertEqual(response.status_code, 200)
-        data = response.json()
-        self.assertEqual(len(data), 0)
+        self.assertEqual(response.status_code, 403)
 
     def test_create_post_without_login(self):
         client = APIClient()
@@ -167,31 +165,28 @@ class TestCommentApi(BaseClass):
         
     def test_get_comments(self):
         client = APIClient()
-        response = client.get(reverse('comment-list', kwargs={'post': self.post_id}))
-        self.assertEqual(response.status_code, 200)
-        data = response.json()
-        self.assertEqual(len(data), 0)
+        response = client.get(reverse('comment-list'))
+        self.assertEqual(response.status_code, 403)
 
     def test_create_comments_without_login(self):
         client = APIClient()
         request_data = dict(
             user=str(self.bob.id),
+            post=self.post_id,
             description='My first comment on first post',
             )
-        response = client.post(reverse('comment-list', kwargs={'post': self.post_id}), request_data)
+        response = client.post(reverse('comment-list'), request_data)
         self.assertEqual(response.status_code, 403)
 
     def test_create_comments_with_login(self):
         client = APIClient()
-        client.login(username='John', password=self.password)
+        client.login(username='Bob', password=self.password)
         request_data = dict(
-            user=self.bob.id,
-            post=self.post_id,
             description='My first comment on first post',
             )
-        response = client.post(reverse('comment-list', kwargs={'post': self.post_id}), request_data)
+        response = client.post(reverse('comments-on-posts-list', kwargs={'post': self.post_id}), request_data)
         self.assertEqual(response.status_code, 201)
-        response = client.get(reverse('comment-list', kwargs={'post': self.post_id}), request_data)
+        response = client.get(reverse('comments-on-posts-list', kwargs={'post': self.post_id}), request_data)
         data = response.json()
         self.assertEqual(len(data), 1)
 
@@ -199,20 +194,18 @@ class TestCommentApi(BaseClass):
         client = APIClient()
         client.login(username='John', password=self.password)
         request_data = dict(
-            user=self.bob.id,
-            post=self.post_id,
             description='My first comment on first post',
             )
-        response = client.post(reverse('comment-list', kwargs={'post': self.post_id}), request_data)
+        response = client.post(reverse('comments-on-posts-list', kwargs={'post': self.post_id}), request_data)
         comment_id = response.json()["id"]
         self.assertEqual(response.status_code, 201)
-        response = client.get(reverse('comment-list', kwargs={'post': self.post_id}), request_data)
+        response = client.get(reverse('comments-on-posts-list', kwargs={'post': self.post_id}), request_data)
         data = response.json()
         self.assertEqual(len(data), 1)
 
         request_data["parent"] = comment_id
-        response = client.post(reverse('comment-list', kwargs={'post': self.post_id}), request_data)
+        response = client.post(reverse('comments-on-posts-list', kwargs={'post': self.post_id}), request_data)
         self.assertEqual(response.status_code, 201)
-        response = client.get(reverse('comment-list', kwargs={'post': self.post_id}), request_data)
+        response = client.get(reverse('comments-on-posts-list', kwargs={'post': self.post_id}), request_data)
         data = response.json()
         self.assertEqual(len(data), 2)
