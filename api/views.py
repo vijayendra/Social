@@ -23,15 +23,6 @@ class PostViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-class CommentViewSet(viewsets.ModelViewSet):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-    permission_classes = (IsOwnerOrAuthenticated, )
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-
-
 class MyPostsList(generics.ListAPIView):
     serializer_class = PostSerializer
     permission_classes = (IsOwnerOrAuthenticated, )

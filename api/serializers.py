@@ -35,7 +35,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ('url', 'id', 'user', 'post', 'parent', 'description')
+        fields = ('id', 'user', 'post', 'parent', 'description')
         read_only_fields = ('post',)
 
     def get_validation_exclusions(self, *args, **kwargs):
