@@ -24,6 +24,7 @@
 
     $scope.init = function(post_id){
       $scope.post_id = post_id;
+      console.log("Init post: "+post_id);
       Comments.get(post_id).then(success, failure);
       function success(data, status, headers, config){
         $scope.comments = data.data;

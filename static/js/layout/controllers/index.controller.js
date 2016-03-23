@@ -22,7 +22,10 @@
       }
 
       $scope.$on('post.created', function(event, post){
+        console.log('unshifting post');
+        console.log(post);
         $scope.posts.unshift(post);
+        console.log($scope.posts);
       })
       $scope.$on('post.created.error', function(event, post){
         $scope.posts.shift();
