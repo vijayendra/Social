@@ -5,18 +5,17 @@
   .module('social.posts.services')
   .factory('Post', Post);
 
-  Post.$inject = ['$http'];
-  function Post($http){
+  Post.$inject = ['$http', 'Comments'];
+  function Post($http, Comments){
     return {
       addComment: addComment,
       getComments: getComments
     };
     function getComments(post_id){
-      return $http.get('/api/posts/'+post_id+'/comments/');
+      return Comments.get(post_id);
     };
     function addComment(post_id, parent_id, comment){
-      var url = '/api/posts/'+post_id+'/comments/';
-      return $http.post(url, {parent: parent_id, description: comment})
+      return Comments.create(post_id, parent_id, comment);
     };
   }
 

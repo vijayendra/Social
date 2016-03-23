@@ -8,6 +8,10 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
 
+    class Meta:
+        get_latest_by = 'id'
+        ordering = ('-id',)
+
     def __unicode__(self):
         return "<Post(%s): %s>" % (self.pk, self.title)
 
