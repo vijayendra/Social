@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 't-3_3wcx1&jzpnlaa2w8r#_ilu*tmx6+(d-@33#bpvnc$4s+%a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', True)
 
 ALLOWED_HOSTS = []
 
@@ -154,6 +154,6 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder',
 ]
 
-COMPRESS_ENABLED = False
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
