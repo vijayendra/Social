@@ -65,7 +65,7 @@
     }
 
     function register(username, email, password){
-      return $http.post('/api/users/', {
+      return $http.post('/api/register/', {
         username: username,
         email: email,
         password: password
@@ -73,7 +73,7 @@
 
       function success(data, status, headers, config){
         console.log("Success");
-        window.location = "/login";
+        window.location = "/";
       };
       function failure(data, status, headers, config){
         console.error('Registration failure');

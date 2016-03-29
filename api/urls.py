@@ -4,7 +4,7 @@ from rest_framework import routers
 from .views import (
     UserViewSet, PostViewSet, MyPostsList,
     OtherPostsList, MyCommentsList, OtherCommentsList,
-    CommentOnPostViewSet, LoginView, LogoutView
+    CommentOnPostViewSet, LoginView, LogoutView, RegisterView
     )
 
 router = routers.DefaultRouter()
@@ -32,5 +32,6 @@ urlpatterns = [
 
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^register/$', RegisterView.as_view(), name='logout'),
     ]
 
