@@ -22,6 +22,7 @@ Followed https://github.com/brwr/thinkster-django-angular.git as a reference poi
 *NOTE: Requires [Heroku Toolbelt](https://toolbelt.heroku.com/).*
 
 * `$ heroku apps:create`
+* `$ heroku addons:create heroku-postgresql:hobby-dev`
 * `$ heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git`
 * `$ heroku config:set DEBUG=False`
 * `$ heroku config:set COMPRESS_ENABLED=True`
