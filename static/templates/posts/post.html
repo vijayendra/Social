@@ -10,15 +10,15 @@
             {{ post.user.username }} ({{ post.user.email }})
           </small>
         </blockquote>
-        <p class="post-description">
+        <pre>
           {{ post.description }}
-        </p>
+        </pre>
         <ul class="media-list">
           <li class="media" ng-repeat="comment in comments">
             <a class="media-left" href="#"></a>
             <div class="media-body">
               <p>
-                <u>{{ comment.user.username }}</u>: {{ comment.description }}
+                <u>{{ comment.user.username }}</u>: <pre>{{ comment.description }}</pre>
               </p>
               
             </div>
