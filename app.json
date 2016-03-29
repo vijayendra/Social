@@ -1,0 +1,8 @@
+{
+  "name": "Social Network App in Django and Angular",
+  "description": "Sample social network forum build using Django REST APIs, Bootstrap and AngularJS.",
+  "image": "heroku/python",
+  "repository": "https://github.com/vijayendra/Social",
+  "keywords": ["python", "django", "angular"],
+  "addons": [ "heroku-postgresql" ]
+}

@@ -8,3 +8,4 @@ django-compressor==2.0
 gunicorn==19.4.5
 whitenoise==2.0.6
 BeautifulSoup==3.2.1
+psycopg2==2.6.1
