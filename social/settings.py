@@ -154,6 +154,6 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder',
 ]
 
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+COMPRESS_ENABLED = False #os.environ.get('COMPRESS_ENABLED', False) ##FIXME
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
