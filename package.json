@@ -1,0 +1,23 @@
+{
+  "name": "social",
+  "version": "1.0.0",
+  "description": "Social Networking =================",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "^1.7.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijayendra/Social.git"
+  },
+  "author": "Vijayendra Bapte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vijayendra/Social/issues"
+  },
+  "homepage": "https://github.com/vijayendra/Social#readme"
+}

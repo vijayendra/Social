@@ -5,3 +5,4 @@ dist/
 staticfiles/
 static/bower_components/
 venv/
+node_modules/
