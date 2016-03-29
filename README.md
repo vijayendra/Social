@@ -5,6 +5,8 @@ Sample social network forum build using Django REST APIs, Bootstrap and AngularJ
 
 Followed https://github.com/brwr/thinkster-django-angular.git as a reference point based on the tutorial https://thinkster.io/brewer/angular-django-tutorial/
 
+See [Live DEMO](https://social-django.herokuapp.com/)
+
 ## Installation
 
 * `$ git clone git@github.com:vijayendra/Social.git`
