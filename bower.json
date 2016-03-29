@@ -24,6 +24,7 @@
     "jquery": "~2.1.1",
     "ngDialog": "~0.3.3",
     "underscore": "^1.8.3",
-    "snackbarjs": "^1.1.0"
+    "snackbarjs": "^1.1.0",
+    "github-fork-ribbon-css": "^0.2.0"
   }
 }
