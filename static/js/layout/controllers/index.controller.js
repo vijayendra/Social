@@ -18,7 +18,7 @@
         $scope.posts = data.data;
       }
       function failure(data, status, headers, config){
-        console.error(data.error);
+        console.error('Failed to load posts');
       }
 
       $scope.$on('post.created', function(event, post){

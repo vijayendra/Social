@@ -142,7 +142,6 @@ REST_FRAMEWORK = {
 
 # A list of locations of additional static files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'dist/static'),
     os.path.join(BASE_DIR, "static"),
     ]
 
