@@ -1,7 +1,7 @@
 <posts posts="posts" ng-show="posts && posts.length"></posts>
 
 <div class="jumbotron text-center col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1" data-position="center"
-     ng-hide="isAuthenticated()">
+     ng-hide="isAuthenticated() && posts && posts.length">
   <div class="container" >
     <a class="logo">
       <img src="/static/images/logo.jpg" class="img-circle" alt="Vijayendra Bapte" />
