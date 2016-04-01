@@ -12,32 +12,33 @@
     $scope.posts = [];
     activate();
 
-    $scope.hello = function(){
+    $scope.newPost = function(){
       if(!$scope.isAuthenticated()){
         $location.url('/login');
       } else {
         ngDialog.open({
           template: '/static/templates/posts/new-post.html',
           controller: 'NewPostController',
-          controllerAs: 'post',
-          className: 'col-xs-6 col-xs-offset-3'
+          controllerAs: 'post'
         });
       }
     }
     function activate(){
-      Posts.all().then(success, failure);
-      function success(data, status, headers, config){
-        $scope.posts = data.data;
-      }
-      function failure(data, status, headers, config){
-        console.error('Failed to load posts');
-      }
+      if($scope.isAuthenticated()){
+        Posts.all().then(success, failure);
+        function success(data, status, headers, config){
+          $scope.posts = data.data;
+        }
+        function failure(data, status, headers, config){
+          console.error('Failed to load posts');
+        }
+      };
 
       $scope.$on('post.created', function(event, post){
-        console.log('unshifting post');
-        console.log(post);
         $scope.posts.unshift(post);
-        console.log($scope.posts);
+      })
+      $scope.$on('post.deleted', function(event, post, post_index){
+        $scope.posts.splice(post_index, 1);
       })
       $scope.$on('post.created.error', function(event, post){
         $scope.posts.shift();

@@ -9,7 +9,8 @@
       controller: 'PostController',
       restrict: 'E',
       scope: {
-        post: '='
+        post: '=',
+        index: '='
       },
       templateUrl: '/static/templates/posts/post.html'
     };

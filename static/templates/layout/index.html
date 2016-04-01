@@ -1,11 +1,11 @@
 <posts posts="posts" ng-show="posts && posts.length"></posts>
 
-<div class="jumbotron text-center col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1" data-position="center">
-  <div class="container" ng-hide="isAuthenticated()">
+<div class="jumbotron text-center col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1" data-position="center"
+     ng-hide="isAuthenticated()">
+  <div class="container" >
     <a class="logo">
-      <img src="/static/images/vijay_face.png" class="img-circle" alt="Vijayendra Bapte" />
+      <img src="/static/images/logo.jpg" class="img-circle" alt="Vijayendra Bapte" />
     </a>
-    <h2>Vijayendra Bapte</h2>
     <div class="alert alert-info " role="alert">
       Welcome to my social network portal build using Django + Angular!
     </div>
@@ -14,5 +14,5 @@
 </div>
 
 <a class="btn btn-primary btn-fab btn-raised mdi-content-add btn-add-new-post"
-   ng-click="hello()"
+   ng-click="newPost()"
    ></a>
