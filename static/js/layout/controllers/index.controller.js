@@ -19,7 +19,8 @@
         ngDialog.open({
           template: '/static/templates/posts/new-post.html',
           controller: 'NewPostController',
-          controllerAs: 'post'
+          controllerAs: 'post',
+          className: 'col-xs-6 col-xs-offset-3'
         });
       }
     }
