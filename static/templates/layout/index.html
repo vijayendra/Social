@@ -1,7 +1,5 @@
 <posts posts="posts" ng-show="posts && posts.length"></posts>
 
 <a class="btn btn-primary btn-fab btn-raised mdi-content-add btn-add-new-post"
-   ng-show="isAuthenticated()"
-   ng-dialog="/static/templates/posts/new-post.html"
-   ng-dialog-controller="NewPostController as post"
+   ng-click="hello()"
    ></a>

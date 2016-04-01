@@ -18,7 +18,7 @@
       controller: 'LogoutController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/auth/login.html'
-    }).otherwise('/');
+    }).otherwise('/login');
   }
   angular.module('social.routes', ['ngRoute']).config(routeConfig);
 })();

@@ -4,6 +4,6 @@
     'social.layout.controllers'
   ]);
 
-  angular.module('social.layout.controllers', []);
+  angular.module('social.layout.controllers', ['ngDialog']);
   
 })();
