@@ -1,3 +1,7 @@
+.displayText{
+    white-space: pre-wrap;
+    background-color: inherit;
+}
 .btn-add-new-post {
   position: fixed;
   bottom: 20px;

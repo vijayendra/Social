@@ -10,7 +10,7 @@
             {{ post.user.username }} ({{ post.user.email }})
           </small>
         </blockquote>
-        <pre>
+        <pre class="displayText">
           {{ post.description }}
         </pre>
         <ul class="media-list">
@@ -18,7 +18,7 @@
             <a class="media-left" href="#"></a>
             <div class="media-body">
               <p>
-                <u>{{ comment.user.username }}</u>: <pre>{{ comment.description }}</pre>
+                <u>{{ comment.user.username }}</u>: <pre class="displayText">{{ comment.description }}</pre>
               </p>
             </div>
           </li>
