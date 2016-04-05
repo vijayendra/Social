@@ -24,14 +24,14 @@
       }
     }
     function activate(){
+      function success(data, status, headers, config){
+        $scope.posts = data.data;
+      }
+      function failure(data, status, headers, config){
+        console.error('Failed to load posts');
+      }
       if($scope.isAuthenticated()){
         Posts.all().then(success, failure);
-        function success(data, status, headers, config){
-          $scope.posts = data.data;
-        }
-        function failure(data, status, headers, config){
-          console.error('Failed to load posts');
-        }
       };
 
       $scope.$on('post.created', function(event, post){
