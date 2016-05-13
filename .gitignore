@@ -6,3 +6,5 @@ staticfiles/
 static/bower_components/
 venv/
 node_modules/
+local_settings.py
+prod_settings.py

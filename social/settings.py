@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 import dj_database_url
+import dj_json_env
+
+local_settings = dj_json_env.parse("LOCAL_SETTINGS")
+
+_ = local_settings.get
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,12 +26,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 't-3_3wcx1&jzpnlaa2w8r#_ilu*tmx6+(d-@33#bpvnc$4s+%a'
+SECRET_KEY = _('SECRET_KEY', 't-3_3wcx1&jzpnlaa2w8r#_ilu*tmx6+(d-@33#bpvnc$4s+%a')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', True)
+DEBUG = _('DEBUG', True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = _('ALLOWED_HOSTS', [])
+
+SECURE_PROXY_SSL_HEADER = _('SECURE_PROXY_SSL_HEADER', None)
 
 
 # Application definition
@@ -154,6 +162,6 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder',
 ]
 
-COMPRESS_ENABLED = False #os.environ.get('COMPRESS_ENABLED', False) ##FIXME
+COMPRESS_ENABLED = _('COMPRESS_ENABLED', False)
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
