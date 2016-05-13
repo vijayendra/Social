@@ -26,7 +26,7 @@ See [Live DEMO](https://social-django.herokuapp.com/)
 * `$ heroku apps:create`
 * `$ heroku addons:create heroku-postgresql:hobby-dev`
 * `$ heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git`
-* `$ heroku config:set DEBUG=False`
+* `$ heroku config:set LOCAL_SETTINGS={"SECURE_PROXY_SSL_HEADER": ["HTTP_X_FORWARDED_PROTO", "https"], "ALLOWED_HOSTS": ["*"], "SECRET_KEY": "<my 50 char long secret key>", "DEBUG": false}
 * `$ heroku config:set COMPRESS_ENABLED=True`
 * `$ git push heroku master`
 * `$ heroku open`
